@@ -1,0 +1,18 @@
+2023-10-08 18:44:35,340 ERROR Internal Server Error: /news/1 C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\utils\log.py (<class 'NameError'>, NameError("name 'cache' is not defined"), <traceback object at 0x00000231F54A5C00>)
+Traceback (most recent call last):
+  File "C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\views\generic\detail.py", line 108, in get
+    self.object = self.get_object()
+  File "C:\Users\Êåøà\PycharmProjects\project_dir\bulletin_board\board\views.py", line 62, in get_object
+    obj = cache.get(f'post-{self.kwargs["pk"]}',
+NameError: name 'cache' is not defined
+2023-10-08 18:44:35,347 ERROR "GET /news/1 HTTP/1.1" 500 90699 C:\Users\Êåøà\PycharmProjects\project_dir\venv\lib\site-packages\django\core\servers\basehttp.py None

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Replies</title>
+</head>
+<body>
+    {% if replies_to_author %}
+        {% for reply in replies_to_author %}
+        <ul>
+            <li><strong>{{ reply.author }} {{ reply.date_posted }}&nbsp;
+                {% if reply.post.post_author == request.user or reply.author == request.user %}
+                    <button><a href="{% url 'delete_reply' reply.id %}">Удалить</a></button>
+                {% endif %}
+                {% if reply.post.post_author == request.user and not reply.is_allowed %}
+                    <button><a href="{% url 'allow_reply' reply.id %}">Принять</a></button>
+                {% endif %}
+            </strong></li>
+            <li><strong>Обьявление: <a href="{% url 'post' reply.post.id %}">{{ reply.post }}</a></strong>
+            <ul>
+            <li><em>{{ reply.content }}</em></li>
+            </ul>
+            </li>
+        </ul>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
